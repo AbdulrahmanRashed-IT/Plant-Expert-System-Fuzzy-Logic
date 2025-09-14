@@ -1,0 +1,15 @@
+{
+  "name": "plant-expert-system",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A plant expert system for chili pest diagnosis using Fuzzy Logic.",
+  "scripts": {
+    "start": "php -S localhost:8000"
+  },
+  "dependencies": {
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.5",
+    "tailwindcss": "^4.1.9"
+  },
+  "devDependencies": {}
+}

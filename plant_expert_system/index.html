@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Updated title for chili pest diagnosis -->
+    <title>Sistem Pakar Diagnosa Hama Tanaman Cabai</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <!-- Header -->
+      <header class="header">
+        <div class="header-content">
+          <div class="logo">
+            <!-- Updated icon and title for chili plants -->
+            <div class="logo-icon">🌶️</div>
+            <h1>ChiliPestExpert</h1>
+          </div>
+          <nav class="nav">
+            <button class="nav-btn active" data-tab="diagnosis">
+              Diagnosa Hama
+            </button>
+            <button class="nav-btn" data-tab="backward">Analisis Hama</button>
+            <button class="nav-btn" data-tab="about">Tentang</button>
+          </nav>
+        </div>
+      </header>
+
+      <!-- Main Content -->
+      <main class="main">
+        <!-- Diagnosis Tab -->
+        <div id="diagnosis" class="tab-content active">
+          <div class="diagnosis-container">
+            <div class="diagnosis-header">
+              <!-- Updated content for chili pest diagnosis -->
+              <h2>Diagnosa Hama Tanaman Cabai (Capsicum annuum L.)</h2>
+              <p>
+                Pilih gejala serangan hama yang Anda amati pada tanaman cabai
+                untuk mendapatkan diagnosa menggunakan metode Fuzzy Logic
+              </p>
+            </div>
+
+            <div class="symptoms-section">
+              <h3>Pilih Gejala Serangan Hama</h3>
+              <div class="search-box">
+                <input
+                  type="text"
+                  id="symptom-search"
+                  placeholder="Cari gejala serangan hama..."
+                />
+                <!-- Changed from <span> to <button> for click functionality -->
+                <button
+                  id="search-btn"
+                  class="search-icon"
+                  aria-label="Cari Gejala"
+                >
+                  🔍
+                </button>
+              </div>
+              <div id="symptoms-grid" class="symptoms-grid">
+                <!-- Symptoms will be loaded here -->
+              </div>
+              <div class="selected-symptoms">
+                <h4>Gejala Terpilih (<span id="selected-count">0</span>)</h4>
+                <div id="selected-symptoms" class="selected-list"></div>
+              </div>
+              <button id="diagnose-btn" class="diagnose-btn" disabled>
+                <!-- Updated button text for pest diagnosis -->
+                <span class="btn-text">Diagnosa Hama (Fuzzy Logic)</span>
+                <span class="btn-icon">🔬</span>
+              </button>
+            </div>
+
+            <div id="results-section" class="results-section hidden">
+              <h3>Hasil Diagnosa Hama</h3>
+              <div id="diagnosis-results" class="results-grid"></div>
+            </div>
+          </div>
+        </div>
+        <!-- Backward Chaining Tab -->
+
+        <div id="backward" class="tab-content">
+          <div class="backward-container">
+            <div class="backward-header">
+              <!-- Updated for pest analysis -->
+              <h2>Analisis Hama Tanaman Cabai</h2>
+              <p>
+                Pilih jenis hama untuk melihat karakteristik gejala dan metode
+                pengendalian yang tepat
+              </p>
+            </div>
+
+            <div class="disease-selection">
+              <h3>Pilih Jenis Hama</h3>
+              <!-- Changed id from 'pest-select' to 'disease-select' for consistency with JS -->
+              <select id="disease-select" class="disease-select">
+                <option value="">-- Pilih Hama --</option>
+              </select>
+            </div>
+
+            <div id="backward-results" class="backward-results hidden">
+              <div class="disease-info">
+                <h3 id="pest-name"></h3>
+                <p>
+                  <strong>Nama Latin:</strong> <span id="pest-latin"></span>
+                </p>
+                <p id="pest-description"></p>
+                <div class="danger-level">
+                  <span>Tingkat Bahaya: </span>
+                  <span id="danger-level" class="danger-badge"></span>
+                </div>
+              </div>
+
+              <div class="required-symptoms">
+                <h4>Karakteristik Gejala Serangan</h4>
+                <div id="required-symptoms-list" class="symptoms-list"></div>
+              </div>
+
+              <div class="solutions">
+                <h4>Metode Pengendalian</h4>
+                <!-- Changed id from 'control-methods-list' to 'solutions-list' for consistency with JS -->
+                <div id="solutions-list" class="solutions-grid"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- About Tab -->
+        <div id="about" class="tab-content">
+          <div class="about-container">
+            <!-- Updated about section for chili pest system -->
+            <h2>Tentang Sistem Pakar Hama Cabai</h2>
+            <div class="about-content">
+              <div class="about-section">
+                <h3>🎯 Tujuan Sistem</h3>
+                <p>
+                  Sistem pakar ini dirancang khusus untuk membantu petani cabai
+                  dalam mendiagnosa serangan hama pada tanaman cabai (Capsicum
+                  annuum L.) menggunakan metode Fuzzy Logic untuk hasil yang
+                  lebih akurat.
+                </p>
+              </div>
+
+              <div class="about-section">
+                <h3>🔬 Metode Fuzzy Logic</h3>
+                <div class="method-grid">
+                  <div class="method-card">
+                    <h4>Fuzzy Inference System</h4>
+                    <p>
+                      Menggunakan logika fuzzy untuk menangani ketidakpastian
+                      dalam diagnosa hama. Sistem memberikan nilai keanggotaan
+                      untuk setiap kemungkinan hama berdasarkan gejala yang
+                      diamati.
+                    </p>
+                  </div>
+                  <div class="method-card">
+                    <h4>Analisis Hama</h4>
+                    <p>
+                      Analisis karakteristik hama untuk memahami pola serangan
+                      dan metode pengendalian yang paling efektif untuk setiap
+                      jenis hama.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="about-section">
+                <h3>🌶️ Cakupan Hama Cabai</h3>
+                <p>
+                  Sistem ini mencakup 8 jenis hama utama yang menyerang tanaman
+                  cabai, termasuk ulat grayak, kutu daun, trips, ulat buah,
+                  penggerek batang, ulat tanah, kutu kebul, dan tungau merah.
+                </p>
+              </div>
+
+              <div class="about-section">
+                <h3>💡 Cara Penggunaan</h3>
+                <ol>
+                  <li>Amati gejala serangan hama pada tanaman cabai Anda</li>
+                  <li>Pilih gejala yang sesuai pada tab Diagnosa Hama</li>
+                  <li>Klik tombol "Diagnosa Hama (Fuzzy Logic)" untuk hasil</li>
+                  <li>Terapkan metode pengendalian yang disarankan</li>
+                </ol>
+              </div>
+
+              <div class="about-section">
+                <h3>🏆 Keunggulan Fuzzy Logic</h3>
+                <ul>
+                  <li>Menangani ketidakpastian dalam gejala serangan</li>
+                  <li>Memberikan tingkat kepercayaan yang lebih akurat</li>
+                  <li>Dapat mendiagnosa multiple hama sekaligus</li>
+                  <li>Adaptif terhadap variasi gejala di lapangan</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <!-- Loading Overlay -->
+      <div id="loading-overlay" class="loading-overlay hidden">
+        <div class="loading-spinner">
+          <div class="spinner"></div>
+          <!-- Updated loading text -->
+          <p>Menganalisis gejala hama dengan Fuzzy Logic...</p>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/app.js"></script>
+  </body>
+</html>
